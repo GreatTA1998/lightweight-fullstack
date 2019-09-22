@@ -1,0 +1,58 @@
+<!-- HTML SECTION -->
+<div id="app">
+  {{ message }}
+  <button @click="createDoc()">CREATE DOC</button>
+  <button @click="fetchDocs()">FETCH DOC</button>
+  <div v-for="(doc, i) in docs" :idx="i">
+    {{ doc }}
+  </div>
+</div>
+
+<!-- FIRESTORE SECTION -->
+<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-firestore.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyCPFQftOfFLm9eTCmW-xudi0xqogNSbdj4",
+    authDomain: "hello-world-2fb00.firebaseapp.com",
+    databaseURL: "https://hello-world-2fb00.firebaseio.com",
+    projectId: "hello-world-2fb00",
+    storageBucket: "",
+    messagingSenderId: "180500306477",
+    appId: "1:180500306477:web:2048deebcbe487501d76a4"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore(); 
+</script>
+
+<!-- VUE SECTION -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!',
+    docs: []
+  },
+  methods: {
+    async createDoc () {
+      const docRef = await db.collection("users").add({
+        first: "Ada",
+        last: "Lovelace",
+        born: 1815
+      })
+      console.log("Document written with ID: ", docRef.id)
+    },
+    async fetchDocs () {
+      const querySnapshots = await db.collection("users").get();
+      querySnapshots.forEach(doc => {
+        this.docs.push(doc.data());
+      });
+    }
+  }
+})
+</script>
+
+
