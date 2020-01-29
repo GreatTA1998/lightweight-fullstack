@@ -1,0 +1,15 @@
+<!-- Equivalent example written with Javascript -->
+
+<!-- HTML section (we will insert new nodes into the "body" node-->
+<body></body>
+
+<!-- Javascript section -->
+<script>
+const title = document.createElement("h1") // create a "h1" node
+title.innerText = "Hello World" // otherwise we're just rendering an empty <h1></h1>
+document.body.appendChild(title) // add it to the document
+
+const image = document.createElement("img") // create a "image" node 
+image.src = "https://i.imgur.com/0lDk6AO.png" // otherwise we're just rendering an empty <img> 
+document.body.appendChild(image) // add it to the document
+</script>

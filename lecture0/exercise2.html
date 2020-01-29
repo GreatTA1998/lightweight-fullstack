@@ -1,0 +1,19 @@
+<!-- HTML SECTION -->
+  <div id="components-demo">
+    <template v-for="i in 5">
+      <my-button></my-button>
+    </template>
+  </div>
+
+<!-- VUE SECTION -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+// reactivity example =
+Vue.component('my-button', {
+  template: '<button v-on:click="count++">My BUTTON</button>'
+})
+
+new Vue({ el: '#components-demo' })
+</script>
+
