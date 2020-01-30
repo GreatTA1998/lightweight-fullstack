@@ -11,11 +11,11 @@ const routes = [
     name: 'reactivity',
     component: Reactivity
   },
-  // {
-  //   path: '/',
-  //   name: 'home',
-  //   component: Home
-  // },
+  {
+    path: '/',
+    name: 'home',
+    component: Home
+  },
   {
     path: '/about',
     name: 'about',

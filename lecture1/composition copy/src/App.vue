@@ -1,6 +1,5 @@
 <template>
-  <!-- <Home></Home> -->
-  <router-view/>
+  <Home></Home>
 </template>
 
 <script>
@@ -10,6 +9,6 @@ export default {
   name: 'App',
   components: {
     Home
-  }
+  },
 };
 </script>
